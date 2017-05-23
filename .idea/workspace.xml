@@ -3,11 +3,11 @@
   <component name="ChangeListManager">
     <list default="true" id="3b623548-426b-461e-9e8c-887d4e4d2583" name="Default" comment="">
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/com/openalpr/jni/Alpr.java" afterPath="$PROJECT_DIR$/src/com/openalpr/jni/Alpr.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/ProcessPanel.java" afterPath="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/ProcessPanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/ResultsPanel.java" afterPath="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/ResultsPanel.java" />
       <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/logic/RecognitionManager.java" afterPath="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/logic/RecognitionManager.java" />
-      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/utils/Constants.java" afterPath="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/utils/Constants.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/logic/RecognitionProcessor.java" afterPath="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/logic/RecognitionProcessor.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/utils/Dictionary.java" afterPath="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/utils/Dictionary.java" />
     </list>
     <ignored path="$PROJECT_DIR$/out/" />
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
@@ -39,8 +39,8 @@
       <file leaf-file-name="RecognitionProcessor.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/logic/RecognitionProcessor.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="1552">
-              <caret line="97" column="31" lean-forward="false" selection-start-line="97" selection-start-column="31" selection-end-line="97" selection-end-column="31" />
+            <state relative-caret-position="-66">
+              <caret line="65" column="111" lean-forward="false" selection-start-line="65" selection-start-column="106" selection-end-line="65" selection-end-column="111" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -48,11 +48,21 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResultsPanel.java" pinned="false" current-in-tab="false">
+      <file leaf-file-name="DrawUtils.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/utils/DrawUtils.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="254">
+              <caret line="42" column="26" lean-forward="false" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="26" />
+              <folding />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="ResultsPanel.java" pinned="false" current-in-tab="true">
         <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/ResultsPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="33">
-              <caret line="208" column="0" lean-forward="true" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
+            <state relative-caret-position="207">
+              <caret line="164" column="35" lean-forward="false" selection-start-line="164" selection-start-column="35" selection-end-line="164" selection-end-column="35" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
@@ -60,69 +70,34 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ScrollPaneConstants.java" pinned="false" current-in-tab="false">
-        <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/javax/swing/ScrollPaneConstants.java">
+      <file leaf-file-name="ConfigurationPanel.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/ConfigurationPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="187">
-              <caret line="99" column="39" lean-forward="true" selection-start-line="99" selection-start-column="39" selection-end-line="99" selection-end-column="39" />
-              <folding>
-                <element signature="e#0#3754#0" expanded="false" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="AbstractPanel.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/AbstractPanel.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="64">
-              <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
+            <state relative-caret-position="145">
+              <caret line="83" column="96" lean-forward="false" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="96" />
               <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Settings.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/dto/Settings.java">
+      <file leaf-file-name="JComboBox.java" pinned="false" current-in-tab="false">
+        <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/javax/swing/JComboBox.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="816">
-              <caret line="69" column="11" lean-forward="true" selection-start-line="69" selection-start-column="11" selection-end-line="69" selection-end-column="11" />
-              <folding>
-                <element signature="e#2234#2235#0" expanded="true" />
-                <element signature="e#2282#2283#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="134">
+              <caret line="80" column="13" lean-forward="false" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
+              <folding />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="RecognitionManager.java" pinned="false" current-in-tab="true">
+      <file leaf-file-name="RecognitionManager.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/logic/RecognitionManager.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="144">
-              <caret line="37" column="48" lean-forward="true" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
+            <state relative-caret-position="287">
+              <caret line="138" column="0" lean-forward="true" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="IMediaWriter.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/libs/xuggle-xuggler-5.4.jar!/com/xuggle/mediatool/IMediaWriter.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="318">
-              <caret line="62" column="9" lean-forward="false" selection-start-line="62" selection-start-column="9" selection-end-line="62" selection-end-column="9" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="MediaWriter.class" pinned="false" current-in-tab="false">
-        <entry file="jar://$PROJECT_DIR$/libs/xuggle-xuggler-5.4.jar!/com/xuggle/mediatool/MediaWriter.class">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="196">
-              <caret line="527" column="47" lean-forward="true" selection-start-line="527" selection-start-column="47" selection-end-line="527" selection-end-column="47" />
-              <folding />
             </state>
           </provider>
         </entry>
@@ -130,11 +105,21 @@
       <file leaf-file-name="ProcessPanel.java" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/ProcessPanel.java">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="143">
-              <caret line="233" column="46" lean-forward="false" selection-start-line="233" selection-start-column="42" selection-end-line="233" selection-end-column="46" />
+            <state relative-caret-position="207">
+              <caret line="203" column="41" lean-forward="true" selection-start-line="203" selection-start-column="41" selection-end-line="203" selection-end-column="41" />
               <folding>
                 <element signature="imports" expanded="true" />
               </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Dictionary.java" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/utils/Dictionary.java">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="284">
+              <caret line="224" column="48" lean-forward="false" selection-start-line="224" selection-start-column="31" selection-end-line="224" selection-end-column="48" />
+              <folding />
             </state>
           </provider>
         </entry>
@@ -150,11 +135,6 @@
   </component>
   <component name="FindInProjectRecents">
     <findStrings>
-      <find>prepareStartStopButton</find>
-      <find>outputFileChooser</find>
-      <find>%</find>
-      <find>Logg</find>
-      <find>result</find>
       <find>handleFrameViewChange</find>
       <find>displayProcessingResults</find>
       <find>currentImage</find>
@@ -165,7 +145,6 @@
       <find>handleZoomAuto</find>
       <find>repaintRecognition</find>
       <find>processResult</find>
-      <find>progressBar</find>
       <find>exportButton</find>
       <find>start</find>
       <find>convertToPictu</find>
@@ -176,7 +155,16 @@
       <find>dialog</find>
       <find>dialo</find>
       <find>panel</find>
+      <find>stop</find>
+      <find>countryCodeCombo</find>
+      <find>startProcessButton</find>
+      <find>microSecondsBetweenFramesmicroSecondsBetweenFrames</find>
+      <find>process</find>
+      <find>process(</find>
       <find>getSelecte</find>
+      <find>progressBar</find>
+      <find>microSecondsBetweenFrames</find>
+      <find>TimeUnitTimeUnit</find>
     </findStrings>
   </component>
   <component name="Git.Settings">
@@ -193,7 +181,6 @@
         <option value="$PROJECT_DIR$/src/ApplicationRunner.java" />
         <option value="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/AbstractPanel.java" />
         <option value="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/Dictionary.java" />
-        <option value="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/utils/Dictionary.java" />
         <option value="$PROJECT_DIR$/WKIRO_GUI.iml" />
         <option value="$PROJECT_DIR$/src/com/openalpr/jni/exceptions/TaskInterruptedException.java" />
         <option value="$PROJECT_DIR$/src/com/openalpr/jni/AlprPlateResult.java" />
@@ -209,14 +196,15 @@
         <option value="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/utils/TaskUtils.java" />
         <option value="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/dto/Settings.java" />
         <option value="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/utils/DrawUtils.java" />
-        <option value="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/ConfigurationPanel.java" />
-        <option value="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/logic/RecognitionProcessor.java" />
         <option value="$PROJECT_DIR$/src/MC.java" />
         <option value="$PROJECT_DIR$/src/com/openalpr/jni/Alpr.java" />
         <option value="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/utils/Constants.java" />
+        <option value="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/logic/RecognitionProcessor.java" />
+        <option value="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/ConfigurationPanel.java" />
+        <option value="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/utils/Dictionary.java" />
+        <option value="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/logic/RecognitionManager.java" />
         <option value="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/ProcessPanel.java" />
         <option value="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/ResultsPanel.java" />
-        <option value="$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/logic/RecognitionManager.java" />
       </list>
     </option>
   </component>
@@ -730,12 +718,12 @@
       <workItem from="1490547757778" duration="62574000" />
       <workItem from="1493397202471" duration="33000" />
       <workItem from="1495039494961" duration="204000" />
-      <workItem from="1495388735739" duration="13975000" />
+      <workItem from="1495388735739" duration="19097000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="116948000" />
+    <option name="totallyTimeSpent" value="122070000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1382" height="754" extended-state="6" />
@@ -744,7 +732,7 @@
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="TODO" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="6" side_tool="false" content_ui="tabs" />
       <window_info id="Nl-Palette" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
-      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
+      <window_info id="Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="7" side_tool="false" content_ui="tabs" />
       <window_info id="Palette&#9;" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
       <window_info id="Image Layers" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Capture Analysis" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
@@ -758,7 +746,7 @@
       <window_info id="Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" show_stripe_button="true" weight="0.14641288" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="3" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.3294979" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.32919255" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" show_stripe_button="true" weight="0.33" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
@@ -815,22 +803,6 @@
     <option name="FILTER_TARGETS" value="false" />
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/AbstractPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="80">
-          <caret line="5" column="22" lean-forward="false" selection-start-line="5" selection-start-column="22" selection-end-line="5" selection-end-column="22" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/utils/Constants.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="112">
-          <caret line="7" column="12" lean-forward="false" selection-start-line="7" selection-start-column="12" selection-end-line="7" selection-end-column="12" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/ConfigurationPanel.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="448">
@@ -1003,14 +975,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/ConfigurationPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="768">
-          <caret line="56" column="13" lean-forward="false" selection-start-line="56" selection-start-column="13" selection-end-line="56" selection-end-column="13" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/MC.java" />
     <entry file="file://$PROJECT_DIR$/src/com/openalpr/jni/Alpr.java">
       <provider selected="true" editor-type-id="text-editor">
@@ -1024,22 +988,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="304">
           <caret line="27" column="0" lean-forward="true" selection-start-line="27" selection-start-column="0" selection-end-line="27" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/utils/Dictionary.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="3216">
-          <caret line="201" column="0" lean-forward="true" selection-start-line="201" selection-start-column="0" selection-end-line="201" selection-end-column="0" />
-          <folding />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/utils/DrawUtils.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-245">
-          <caret line="52" column="57" lean-forward="true" selection-start-line="52" selection-start-column="57" selection-end-line="52" selection-end-column="57" />
           <folding />
         </state>
       </provider>
@@ -1122,16 +1070,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/logic/RecognitionProcessor.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="1552">
-          <caret line="97" column="31" lean-forward="false" selection-start-line="97" selection-start-column="31" selection-end-line="97" selection-end-column="31" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="jar://$PROJECT_DIR$/libs/xuggle-xuggler-5.4.jar!/com/xuggle/mediatool/event/IRawMediaEvent.class">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="192">
@@ -1164,16 +1102,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/ProcessPanel.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="143">
-          <caret line="233" column="46" lean-forward="false" selection-start-line="233" selection-start-column="42" selection-end-line="233" selection-end-column="46" />
-          <folding>
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/ApplicationGUI.java">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="127">
@@ -1182,20 +1110,83 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/ResultsPanel.java">
+    <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/utils/DrawUtils.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="33">
-          <caret line="208" column="0" lean-forward="true" selection-start-line="208" selection-start-column="0" selection-end-line="208" selection-end-column="0" />
+        <state relative-caret-position="254">
+          <caret line="42" column="26" lean-forward="false" selection-start-line="42" selection-start-column="19" selection-end-line="42" selection-end-column="26" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/logic/RecognitionProcessor.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-66">
+          <caret line="65" column="111" lean-forward="false" selection-start-line="65" selection-start-column="106" selection-end-line="65" selection-end-column="111" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>
         </state>
       </provider>
     </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/javax/swing/JComboBox.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="134">
+          <caret line="80" column="13" lean-forward="false" selection-start-line="80" selection-start-column="13" selection-end-line="80" selection-end-column="13" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/ConfigurationPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="145">
+          <caret line="83" column="96" lean-forward="false" selection-start-line="83" selection-start-column="41" selection-end-line="83" selection-end-column="96" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/utils/Dictionary.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="284">
+          <caret line="224" column="48" lean-forward="false" selection-start-line="224" selection-start-column="31" selection-end-line="224" selection-end-column="48" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="jar://C:/Program Files/Java/jdk1.8.0_60/src.zip!/java/util/concurrent/TimeUnit.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1328">
+          <caret line="161" column="7" lean-forward="true" selection-start-line="161" selection-start-column="7" selection-end-line="161" selection-end-column="7" />
+          <folding>
+            <element signature="e#10182#10183#0" expanded="true" />
+            <element signature="e#10229#10230#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/logic/RecognitionManager.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="144">
-          <caret line="37" column="48" lean-forward="true" selection-start-line="37" selection-start-column="48" selection-end-line="37" selection-end-column="48" />
+        <state relative-caret-position="287">
+          <caret line="138" column="0" lean-forward="true" selection-start-line="138" selection-start-column="0" selection-end-line="138" selection-end-column="0" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/ProcessPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="203" column="41" lean-forward="true" selection-start-line="203" selection-start-column="41" selection-end-line="203" selection-end-column="41" />
+          <folding>
+            <element signature="imports" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/pl/polsl/wkiro/recognizer/gui/ResultsPanel.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="207">
+          <caret line="164" column="35" lean-forward="false" selection-start-line="164" selection-start-column="35" selection-end-line="164" selection-end-column="35" />
           <folding>
             <element signature="imports" expanded="true" />
           </folding>

@@ -48,7 +48,12 @@ public class RecognitionManager extends MediaListenerAdapter {
         processingResult = new ProcessingResult();
     }
 
-    public ProcessingResult process() throws ProcessingException {
+    public ProcessingResult process(boolean videoMode) throws ProcessingException {
+        ENABLE_VIDEO_WRITER = videoMode;
+        if(videoMode) {
+            microSecondsBetweenFrames = 0;
+        }
+
 
         try {
             ToolFactory.setTurboCharged(true);
@@ -108,7 +113,7 @@ public class RecognitionManager extends MediaListenerAdapter {
 
         if (event.getTimeStamp() - mLastPtsWrite >= microSecondsBetweenFrames) {
             RecognitionProcessor alprProcessor = new RecognitionProcessor();
-            alprProcessor.recognize(event.getImage(), settings, event.getTimeStamp(), processingResult);
+            alprProcessor.recognize(event.getImage(), settings, event.getTimeStamp(), processingResult, !ENABLE_VIDEO_WRITER);
 
             log.debug("onVideoPicture", "Frame saved. Time: " + event.getTimeStamp() + ", Last write: " + mLastPtsWrite);
             mLastPtsWrite += microSecondsBetweenFrames;

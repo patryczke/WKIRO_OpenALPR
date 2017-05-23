@@ -167,6 +167,12 @@ public class ResultsPanel extends AbstractPanel implements ActionListener, ListS
         }
     }
 
+    public void displayVideoProcessingResults(ProcessingResult result) {
+
+        recognitionsList.setListData(new String[]{});
+        //TODO: new panel with media player or no :)
+    }
+
     private void handleZoomPlus() {
         currentZoom += ZOOM_STEP;
         zoomSlider.setValue(currentZoom);

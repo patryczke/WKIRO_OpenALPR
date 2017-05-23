@@ -7,6 +7,7 @@ import com.openalpr.jni.exceptions.TaskInterruptedException;
 import pl.polsl.wkiro.recognizer.dto.ProcessingResult;
 import pl.polsl.wkiro.recognizer.dto.Settings;
 import pl.polsl.wkiro.recognizer.logic.RecognitionManager;
+import pl.polsl.wkiro.recognizer.utils.Dictionary;
 import pl.polsl.wkiro.recognizer.utils.Logger;
 
 import javax.swing.*;
@@ -16,9 +17,7 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.io.IOException;
 import java.io.PrintWriter;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
+import java.util.concurrent.TimeUnit;
 
 public class ProcessPanel extends AbstractPanel implements ActionListener {
 
@@ -45,8 +44,13 @@ public class ProcessPanel extends AbstractPanel implements ActionListener {
     private JProgressBar progressBar;
     private JLabel progressNumeric;
 
+    private JLabel processingModeLabel;
+    private JComboBox processingModeCombo;
+
     private Thread processTask;
     private ProcessingResult processResult;
+
+    private long startTime;
 
     private static Font FONT_BOLD;
     private static Font FONT_ITALIC;
@@ -66,7 +70,8 @@ public class ProcessPanel extends AbstractPanel implements ActionListener {
             } else if(e.getSource().equals(outputFileSelectButton)) {
                 handleSelectOutputFile();
             } else if(e.getSource().equals(startProcessButton)) {
-                handleStartProcessing();
+                boolean isVideo = Dictionary.ProcessingMode.VIDEO.value().equals(processingModeCombo.getSelectedItem());
+                handleStartProcessing(isVideo);
             } else if(e.getSource().equals(stopProcessButton)) {
                 handleStopProcessing(true);
             }
@@ -125,6 +130,13 @@ public class ProcessPanel extends AbstractPanel implements ActionListener {
     private void prepareStartStopButton() {
         startStopPanel = new JPanel();
 
+        processingModeLabel = new JLabel("Mode:");
+        processingModeCombo = new JComboBox(Dictionary.getProcessingMode().toArray());
+        startStopPanel.add(new JPanel() {{
+            add(processingModeLabel);
+            add(processingModeCombo);
+        }});
+
         startProcessButton = new JButton("START PROCESSING");
         startProcessButton.addActionListener(this);
         startStopPanel.add(startProcessButton);
@@ -170,7 +182,7 @@ public class ProcessPanel extends AbstractPanel implements ActionListener {
         }
     }
 
-    private void handleStartProcessing() {
+    private void handleStartProcessing(boolean isVideo) {
 
         final String msg = "No file selected for processing";
 
@@ -190,15 +202,17 @@ public class ProcessPanel extends AbstractPanel implements ActionListener {
         outputFileSelectButton.setEnabled(false);
         progressBar.setValue(0);
         progressNumeric.setText("0.00%");
+        elapsedTimeValue.setText("0.00");
 
         processTask = new Thread(() -> {
             try {
-                processInternal();
+                processInternal(isVideo);
             } catch(TaskInterruptedException tie) {
                 log.warn("handleStartProcessing", tie.getMessage());
             }
         });
         processTask.start();
+        startTime = System.currentTimeMillis();
     }
 
     private void handleStopProcessing(boolean interrupt) {
@@ -215,14 +229,14 @@ public class ProcessPanel extends AbstractPanel implements ActionListener {
         progressNumeric.setText("");
     }
 
-    private void processInternal() {
+    private void processInternal(boolean isVideo) {
         Settings setts = ((ConfigurationPanel)ApplicationGUI.getInstance().getConfigurationPanel()).getSettings();
         setts.setProcessingPaths(inputFileChooser.getSelectedFile().getPath(), outputFileChooser.getSelectedFile().getPath());
         log.debug("processInternal", "Processing with settings: " + new Gson().toJson(setts));
 
         try {
             //processResult = RRecognitionManager.getInstance().process(setts);
-            processResult = new RecognitionManager(setts).process();
+            processResult = new RecognitionManager(setts).process(isVideo);
 
             if(setts.isExportToJson()) {
                 exportReportToFile(processResult, setts.getOutputDirectoryPath());
@@ -234,7 +248,12 @@ public class ProcessPanel extends AbstractPanel implements ActionListener {
             JOptionPane.showMessageDialog(this, "An error occurred while processing:\n" + pe.getMessage());
         }
 
-        ApplicationGUI.getInstance().getResultsPanel().displayProcessingResults(processResult);
+        if(!isVideo) {
+            ApplicationGUI.getInstance().getResultsPanel().displayProcessingResults(processResult);
+        } else {
+            ApplicationGUI.getInstance().getResultsPanel().displayVideoProcessingResults(processResult);
+            log.error("TODO: display video");
+        }
         handleStopProcessing(true);
     }
 
@@ -246,7 +265,12 @@ public class ProcessPanel extends AbstractPanel implements ActionListener {
         int val = (int)(percentageProgress * 100);
         progressBar.setValue(val);
         progressBar.repaint();
-        progressNumeric.setText(String.format("%.2f", percentageProgress * 100) + "%");
+        double prog = percentageProgress * 100;
+        if(prog > 100.0d) {
+            prog = 100.0d;
+        }
+        progressNumeric.setText(String.format("%.2f", prog) + "%");
+        updateElapsedTime();
     }
 
     private void exportReportToFile(ProcessingResult result, String filePath) {
@@ -259,5 +283,12 @@ public class ProcessPanel extends AbstractPanel implements ActionListener {
         } catch (IOException e) {
             log.error("exportReportToFile", e.getMessage());
         }
+    }
+
+    private void updateElapsedTime() {
+        long dif = System.currentTimeMillis() - startTime;
+        String difStr = String.valueOf(dif);
+        difStr = difStr.substring(difStr.length() - 3);
+        elapsedTimeValue.setText(TimeUnit.MILLISECONDS.toSeconds(dif) + "." + difStr.substring(0, 2));
     }
 }

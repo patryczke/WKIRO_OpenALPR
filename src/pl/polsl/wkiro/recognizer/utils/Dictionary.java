@@ -214,4 +214,18 @@ public class Dictionary {
         }
         return result;
     }
+
+    public enum ProcessingMode {
+        NORMAL("Normal"), VIDEO("Video");
+        private String value;
+        ProcessingMode(String value) { this.value = value; };
+        public String value() { return value; }
+    }
+
+    public static List<String> getProcessingMode() {
+        return new ArrayList<String>() {{
+           add(ProcessingMode.NORMAL.value());
+            add(ProcessingMode.VIDEO.value());
+        }};
+    }
 }

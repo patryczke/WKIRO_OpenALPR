@@ -15,8 +15,6 @@ import pl.polsl.wkiro.recognizer.utils.TaskUtils;
 
 import javax.imageio.ImageIO;
 import java.awt.image.BufferedImage;
-import java.awt.image.DataBufferByte;
-import java.awt.image.WritableRaster;
 import java.io.ByteArrayOutputStream;
 import java.io.File;
 import java.io.IOException;
@@ -31,7 +29,7 @@ public class RecognitionProcessor {
 
     private static final Logger log = new Logger(RecognitionProcessor.class);
 
-    public ProcessingResult recognize(BufferedImage image, Settings settings, long timeMicroSeconds, ProcessingResult processingResult) throws ProcessingException, TaskInterruptedException {
+    public ProcessingResult recognize(BufferedImage image, Settings settings, long timeMicroSeconds, ProcessingResult processingResult, boolean saveFrame) throws ProcessingException, TaskInterruptedException {
 
         TaskUtils.checkTaskInterrupted(true);
 
@@ -72,8 +70,12 @@ public class RecognitionProcessor {
                 return null;
             }
 
-            ImageIO.write(image, "png", new File(path));
-            log.info("recognize", "Frame saved to: " + path + "\n" + "Plates recognized: " + Arrays.toString(recognizedPlates.toArray()));
+            if(saveFrame) {
+                ImageIO.write(image, "png", new File(path));
+                log.info("recognize", "Frame saved to: " + path + "\n" + "Plates recognized: " + Arrays.toString(recognizedPlates.toArray()));
+            } else {
+                path = "";
+            }
 
             if (processingResult.getFrameNames() == null) {
                 processingResult.setFrameNames(new ArrayList<>());

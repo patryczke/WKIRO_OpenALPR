@@ -1,6 +1,7 @@
 package pl.polsl.wkiro.recognizer.gui;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import com.openalpr.jni.exceptions.ProcessingException;
 import com.openalpr.jni.exceptions.TaskInterruptedException;
 import pl.polsl.wkiro.recognizer.dto.ProcessingResult;
@@ -13,6 +14,11 @@ import javax.swing.border.TitledBorder;
 import java.awt.*;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.io.IOException;
+import java.io.PrintWriter;
+import java.nio.file.Files;
+import java.nio.file.Path;
+import java.nio.file.Paths;
 
 public class ProcessPanel extends AbstractPanel implements ActionListener {
 
@@ -37,6 +43,7 @@ public class ProcessPanel extends AbstractPanel implements ActionListener {
     private long processingTime;
     private JLabel elapsedTimeValue;
     private JProgressBar progressBar;
+    private JLabel progressNumeric;
 
     private Thread processTask;
     private ProcessingResult processResult;
@@ -138,6 +145,8 @@ public class ProcessPanel extends AbstractPanel implements ActionListener {
         statisticsPanel.add(elapsedTimeValue);
         progressBar = new JProgressBar();
         statisticsPanel.add(progressBar);
+        progressNumeric = new JLabel();
+        statisticsPanel.add(progressNumeric);
 
         //TODO: update progress (time elapsed + progress %)
 
@@ -179,9 +188,8 @@ public class ProcessPanel extends AbstractPanel implements ActionListener {
         stopProcessButton.setEnabled(true);
         inputFileSelectButton.setEnabled(false);
         outputFileSelectButton.setEnabled(false);
-
-        //TODO: START PROCESS
-        //TODO: VALIDATE
+        progressBar.setValue(0);
+        progressNumeric.setText("0.00%");
 
         processTask = new Thread(() -> {
             try {
@@ -202,7 +210,9 @@ public class ProcessPanel extends AbstractPanel implements ActionListener {
         stopProcessButton.setEnabled(false);
         inputFileSelectButton.setEnabled(true);
         outputFileSelectButton.setEnabled(true);
-        //TODO: STOP PROCESS
+
+        progressBar.setValue(0);
+        progressNumeric.setText("");
     }
 
     private void processInternal() {
@@ -213,6 +223,12 @@ public class ProcessPanel extends AbstractPanel implements ActionListener {
         try {
             //processResult = RRecognitionManager.getInstance().process(setts);
             processResult = new RecognitionManager(setts).process();
+
+            if(setts.isExportToJson()) {
+                exportReportToFile(processResult, setts.getOutputDirectoryPath());
+            }
+            log.debug("processResult: \n" + new Gson().toJson(processResult));
+
         } catch(ProcessingException pe) {
             log.error("processInternal", pe.getMessage());
             JOptionPane.showMessageDialog(this, "An error occurred while processing:\n" + pe.getMessage());
@@ -227,7 +243,21 @@ public class ProcessPanel extends AbstractPanel implements ActionListener {
     }
 
     public void setProgressBarValue(double percentageProgress) {
-        progressBar.setValue((int)(percentageProgress * 100));
+        int val = (int)(percentageProgress * 100);
+        progressBar.setValue(val);
         progressBar.repaint();
+        progressNumeric.setText(String.format("%.2f", percentageProgress * 100) + "%");
+    }
+
+    private void exportReportToFile(ProcessingResult result, String filePath) {
+
+        String path = filePath + "/processingResult.txt";
+        try (PrintWriter writer = new PrintWriter(path, "UTF-8")) {
+            Gson gson = new GsonBuilder().setPrettyPrinting().create();
+            String details = gson.toJson(result);
+            writer.println(details);
+        } catch (IOException e) {
+            log.error("exportReportToFile", e.getMessage());
+        }
     }
 }

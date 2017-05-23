@@ -1,6 +1,7 @@
 package pl.polsl.wkiro.recognizer.gui;
 
 import com.google.gson.Gson;
+import com.google.gson.GsonBuilder;
 import pl.polsl.wkiro.recognizer.dto.ProcessingResult;
 import pl.polsl.wkiro.recognizer.utils.Logger;
 
@@ -39,11 +40,13 @@ public class ResultsPanel extends AbstractPanel implements ActionListener, ListS
     private JButton zoomMinusButton;
     private JButton zoomAdjustButton;
     private JLabel zoomCurrentLabel;
-    private JButton openInExplorerButton;
+    private JButton showDetailsButton;
     private ImageIcon currentImage;
 
     private JPanel exportPanel;
-    private JButton exportButton;
+    private JScrollPane detailsPanel;
+    private JTextArea detailsArea;
+    private JDialog detailsWindow;
 
     private ProcessingResult result;
 
@@ -72,6 +75,8 @@ public class ResultsPanel extends AbstractPanel implements ActionListener, ListS
                 handleZoomMinus();
             } else if (e.getSource().equals(zoomAdjustButton)) {
                 handleZoomAuto();
+            } else if(e.getSource().equals(showDetailsButton)) {
+                prepareDetailsWindow();
             }
         }
     }
@@ -140,9 +145,9 @@ public class ResultsPanel extends AbstractPanel implements ActionListener, ListS
         resultPanel.add(pictureToolsPanel, BorderLayout.EAST);
 
         exportPanel = new JPanel();
-        exportButton = new JButton("Export selected as JSON");
-        exportButton.addActionListener(this);
-        exportPanel.add(exportButton);
+        showDetailsButton = new JButton("Show details");
+        showDetailsButton.addActionListener(this);
+        exportPanel.add(showDetailsButton);
         resultPanel.add(exportPanel, BorderLayout.SOUTH);
 
         add(resultPanel);
@@ -236,5 +241,34 @@ public class ResultsPanel extends AbstractPanel implements ActionListener, ListS
         } else {
             platePicture.setIcon(new ImageIcon());
         }
+    }
+
+    private void prepareDetailsWindow() {
+
+        if(recognitionsList.getSelectedValue() == null) {
+            log.info("prepareDetailsWindow", "No data selected to display details");
+            return;
+        } else {
+            log.debug("prepareDetailsWindow", "Details for: " + recognitionsList.getSelectedValue());
+        }
+
+        detailsWindow = new JDialog(ApplicationGUI.getInstance().getMainFrame(), "Details");
+        detailsWindow.setModalityType(Dialog.ModalityType.APPLICATION_MODAL);
+        detailsWindow.setSize(new Dimension(500, 700));
+
+        detailsArea = new JTextArea();
+        detailsArea.setEditable(false);
+        detailsArea.setWrapStyleWord(true);
+
+        ProcessingResult.ProcessedFrame frame = result.getFrames().get((String) recognitionsList.getSelectedValue());
+        Gson gson = new GsonBuilder().setPrettyPrinting().create();
+        String details = gson.toJson(frame);
+        detailsArea.setText(details);
+
+        detailsPanel = new JScrollPane(detailsArea);
+        detailsPanel.setVerticalScrollBarPolicy(ScrollPaneConstants.VERTICAL_SCROLLBAR_ALWAYS);
+        detailsWindow.add(detailsPanel);
+
+        detailsWindow.setVisible(true);
     }
 }

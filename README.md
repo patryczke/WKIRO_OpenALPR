@@ -24,3 +24,5 @@ WKIRO - System rozpoznawania tablic rejestracyjnych oparty o OpenALPR
 
 ## User interface
 ![alt tag](http://i.imgur.com/3JF52Dd.png)
+
+![alt tag](http://i.imgur.com/U0PNppT.png)
